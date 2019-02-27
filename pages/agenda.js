@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-type Props = {};
-export default class Agenda extends Component<Props> {
+export default class Agenda extends Component {
 
     constructor(props) {
         super(props);
