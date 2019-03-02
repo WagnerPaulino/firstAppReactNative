@@ -1,5 +1,5 @@
 import {
-    GET_AGENDA, ADD_CLIENTE, UPDATE_CLIENTE, DELETE_CLIENTE, SET_ORDENACAO, SET_PESQUISA, SET_CLIENTE
+    GET_AGENDA, ADD_AGENDA, UPDATE_AGENDA, DELETE_AGENDA, SET_ORDENACAO, SET_PESQUISA, SET_AGENDA
 } from '../actions/types';
 
 export default (state = {ordenacao: "a-z"}, action) => {
@@ -10,20 +10,20 @@ export default (state = {ordenacao: "a-z"}, action) => {
                 ...state,
                 agenda: action.data
             }
-        case ADD_CLIENTE:
+        case ADD_AGENDA:
             return {
                 ...state,
-                agenda: state.agenda.concat(action.cliente)
+                agenda: state.agenda.concat(action.agenda)
             }
-        case UPDATE_CLIENTE:
+        case UPDATE_AGENDA:
             return {
                 ...state,
-                cliente: null,
-                agenda: state.agenda.map((cliente) => (cliente.id === action.id) ? action.cliente : cliente)
+                agenda: null,
+                agenda: state.agenda.map((agenda) => (agenda.id === action.id) ? action.agenda : agenda)
             }
-        case DELETE_CLIENTE:
+        case DELETE_AGENDA:
             let agenda = state.agenda;
-            agenda = agenda.filter((cliente) => cliente.id !== action.id);
+            agenda = agenda.filter((agenda) => agenda.id !== agenda.id);
             return {
                 ...state,
                 agenda: agenda
@@ -38,10 +38,10 @@ export default (state = {ordenacao: "a-z"}, action) => {
                 ...state,
                 pesquisa: action.pesquisa
             }
-        case SET_CLIENTE:
+        case SET_AGENDA:
             return {
                 ...state,
-                cliente: action.cliente
+                agenda: action.agenda
             }
         default:
             return state || '';

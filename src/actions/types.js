@@ -1,8 +1,8 @@
 export const ADICIONAR_UM = 'ADICIONAR_UM',
-             GET_CLIENTES = 'GET_CLIENTES',
-             ADD_CLIENTE = 'ADD_CLIENTE',
-             UPDATE_CLIENTE = 'UPDATE_CLIENTE',
-             DELETE_CLIENTE = 'DELETE_CLIENT',
+             GET_AGENDAS = 'GET_AGENDAS',
+             ADD_AGENDA = 'ADD_AGENDA',
+             UPDATE_AGENDA = 'UPDATE_AGENDA',
+             DELETE_AGENDA = 'DELETE_AGENDA',
              SET_ORDENACAO = 'SET_ORDENACAO',
              SET_PESQUISA = 'SET_PESQUISA',
-             SET_CLIENTE =  'SET_CLIENTE'
+             SET_AGENDA =  'SET_AGENDA'

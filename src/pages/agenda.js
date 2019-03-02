@@ -7,9 +7,16 @@ class Agenda extends Component {
 
     constructor(props) {
         super(props);
-    }
+        this.state = {
+            agendas: this.props.getAgendas().data || []
+        };
 
+    }
+    
+    componentDidMount() {}
+    
     render() {
+        console.log(this.state);
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>Welcome to My App!</Text>
