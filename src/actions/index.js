@@ -12,8 +12,8 @@ import {
 // }
 
 const data = [
-    { id: 1, nome: 'Joao', cpf: 1343166, telefone: 131330, email: 'fdsafdsa' },
-    { id: 2, nome: 'fdsa', cpf: 161361, telefone: 6478965, email: 'fdqterds'}
+    { id: 1, nome: 'Ir ao banheiro', horario: 'a cada 2h' },
+    { id: 2, nome: 'Almoçar', horario: '12h30'}
 ]
 
 export const getAgendas = () => ({ type: GET_AGENDAS, data });

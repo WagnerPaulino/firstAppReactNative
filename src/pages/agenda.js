@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
 
@@ -12,15 +12,18 @@ class Agenda extends Component {
         };
 
     }
-    
-    componentDidMount() {}
-    
+
+    componentDidMount() { }
+
     render() {
         console.log(this.state);
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>Welcome to My App!</Text>
-                <Button title="Agenda"></Button>
+                {
+                    this.state.agendas.map((l, i) => (
+                        <Text onPress={(e) => console.log(l)} key={i} style={styles.welcome}>{l.nome}</Text>
+                    ))
+                }
             </View>
         );
     }
@@ -29,13 +32,13 @@ class Agenda extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
         backgroundColor: '#F5FCFF',
     },
     welcome: {
         fontSize: 20,
-        textAlign: 'center',
+        textAlign: 'left',
         margin: 10,
     },
     instructions: {
@@ -47,6 +50,6 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
     return {}
-  };
-  
+};
+
 export default connect(mapStateToProps, actions)(Agenda);
