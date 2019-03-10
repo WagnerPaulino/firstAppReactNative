@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Button, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
 
@@ -14,14 +14,25 @@ class Agenda extends Component {
     }
 
     componentDidMount() { }
+    componentWillReceiveProps(newProps){
+
+    }
 
     render() {
+        console.log(this.props);
         console.log(this.state);
         return (
             <View style={styles.container}>
                 {
                     this.state.agendas.map((l, i) => (
-                        <Text onPress={(e) => console.log(l)} key={i} style={styles.welcome}>{l.nome}</Text>
+                        <TouchableHighlight onPress={() => { }} key={i}>
+                            <View>
+                                <Text onPress={(e) => { e }} style={styles.welcome}>
+                                    {l.nome}
+                                </Text>
+                                <Button title="Excluir" onPress={() => this.props.deleteAgenda(l)} />
+                            </View>
+                        </TouchableHighlight>
                     ))
                 }
             </View>
@@ -49,7 +60,9 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-    return {}
+    return {
+        agenda: state
+    }
 };
 
 export default connect(mapStateToProps, actions)(Agenda);

@@ -1,5 +1,5 @@
 import {
-    GET_AGENDAS
+    GET_AGENDAS, DELETE_AGENDA
 } from './types';
 
 // const generateId = () => {
@@ -19,7 +19,7 @@ const data = [
 export const getAgendas = () => ({ type: GET_AGENDAS, data });
 // export const addCliente = (cliente) => ({ type: ADD_CLIENTE, cliente: salvarCliente(cliente) });
 // export const updateCliente = (id, cliente) => ({ type: UPDATE_CLIENTE, cliente: {id, ...cliente} });
-// export const deleteCliente = (id) => ({ type: DELETE_CLIENTE, id });
+export const deleteAgenda = (id) => ({ type: DELETE_AGENDA, id });
 // export const setOrdenacao = (ev) => ({type: SET_ORDENACAO, ordenacao: ev.target.value});
 // export const setPesquisa = (ev) => ({type: SET_PESQUISA, pesquisa: ev.target.value});
 // export const setCliente = (cliente) => ({type: SET_CLIENTE, cliente});
