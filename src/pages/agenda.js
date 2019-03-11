@@ -8,29 +8,26 @@ class Agenda extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            agendas: this.props.getAgendas().data || []
+            agenda: this.props.getAgendas().data || []
         };
-
+        this.deleteAgenda = this.deleteAgenda.bind(this)
     }
 
-    componentDidMount() { }
-    componentWillReceiveProps(newProps){
-
+    deleteAgenda(id){
+        this.props.deleteAgenda(id)
     }
 
     render() {
-        console.log(this.props);
-        console.log(this.state);
         return (
             <View style={styles.container}>
                 {
-                    this.state.agendas.map((l, i) => (
+                    this.state.agenda.map((l, i) => (
                         <TouchableHighlight onPress={() => { }} key={i}>
                             <View>
                                 <Text onPress={(e) => { e }} style={styles.welcome}>
                                     {l.nome}
                                 </Text>
-                                <Button title="Excluir" onPress={() => this.props.deleteAgenda(l)} />
+                                <Button title="Excluir" onPress={()=> this.deleteAgenda(l.id)} />
                             </View>
                         </TouchableHighlight>
                     ))
@@ -60,9 +57,8 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-    return {
-        agenda: state
-    }
+    console.log(state);
+    return {agenda: state.agenda};
 };
 
 export default connect(mapStateToProps, actions)(Agenda);
