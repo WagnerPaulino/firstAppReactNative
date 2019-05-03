@@ -13,13 +13,13 @@ class Agenda extends Component {
         this.deleteAgenda = this.deleteAgenda.bind(this)
     }
 
-    deleteAgenda(id){
+    deleteAgenda(id) {
         this.props.deleteAgenda(id)
     }
 
-    componentWillReceiveProps(newProps){
+    componentWillReceiveProps(newProps) {
         console.log(newProps);
-        this.setState({agenda: newProps.agenda})
+        this.setState({ agenda: newProps.agenda })
     }
 
     render() {
@@ -32,7 +32,7 @@ class Agenda extends Component {
                                 <Text onPress={(e) => { e }} style={styles.welcome}>
                                     {l.nome}
                                 </Text>
-                                <Button title="Excluir" onPress={()=> this.deleteAgenda(l.id)} />
+                                <Button title="Excluir" onPress={() => this.deleteAgenda(l.id)} />
                             </View>
                         </TouchableHighlight>
                     ))
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-    return {agenda: state.agenda.agenda};
+    return { agenda: state.agenda.agenda };
 };
 
 export default connect(mapStateToProps, actions)(Agenda);
