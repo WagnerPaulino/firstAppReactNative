@@ -2,7 +2,7 @@ import {
     GET_AGENDA, ADD_AGENDA, UPDATE_AGENDA, DELETE_AGENDA, SET_ORDENACAO, SET_PESQUISA, SET_AGENDA
 } from '../actions/types';
 
-export default (state = {}, action) => {
+export default (state = { agenda: [] }, action) => {
     //return state[action.type] || '';
     switch (action.type) {
         case GET_AGENDA:
@@ -21,15 +21,17 @@ export default (state = {}, action) => {
                 agenda: state.agenda.map((agenda) => (agenda.id === action.id) ? action.agenda : agenda)
             }
         case DELETE_AGENDA:
-            for (let index = action.data.length - 1; index >= 0; index--) {
-                console.log(index);
-                if (action.data[index].id === action.id) {
-                    action.data.splice(index, 1);
+            // state.agenda = action.data;
+            for (let index = state.agenda.length - 1; index >= 0; index--) {
+                if (state.agenda[index].id === action.id) {
+                    state.agenda.splice(index, 1);
                 }
             }
+            console.log(state);
+            console.log('redux')
             return {
                 ...state,
-                agenda: action.data
+                agenda: state.agenda
             }
         case SET_AGENDA:
             return {
@@ -37,6 +39,7 @@ export default (state = {}, action) => {
                 agenda: action.agenda
             }
         default:
+        console.log('default');
             return state || '';
     }
 }

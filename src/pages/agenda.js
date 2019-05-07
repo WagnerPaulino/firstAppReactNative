@@ -8,7 +8,7 @@ class Agenda extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            agenda: this.props.getAgendas().data
+            agenda: []
         };
         this.deleteAgenda = this.deleteAgenda.bind(this)
     }
@@ -17,9 +17,20 @@ class Agenda extends Component {
         this.props.deleteAgenda(id)
     }
 
+    componentWillMount() {
+        console.log('Will mount')
+        this.setState({
+            agenda: this.props.getAgendas().data
+        });
+        console.log(this.state);
+    }
+
     componentWillReceiveProps(newProps) {
-        console.log(newProps);
-        this.setState({ agenda: newProps.agenda })
+        console.log('Receive Props')
+        console.log(newProps.agenda);
+        this.setState({
+            agenda: newProps.agenda
+        });
     }
 
     render() {
@@ -62,7 +73,9 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-    return { agenda: state.agenda.agenda };
+    console.log('maptoprops');
+    console.log(state.agenda);
+    return { ...state.agenda };
 };
 
 export default connect(mapStateToProps, actions)(Agenda);
