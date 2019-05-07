@@ -21,7 +21,7 @@ export default (state = { agenda: [] }, action) => {
                 agenda: state.agenda.map((agenda) => (agenda.id === action.id) ? action.agenda : agenda)
             }
         case DELETE_AGENDA:
-            // state.agenda = action.data;
+            state.agenda = action.data;
             for (let index = state.agenda.length - 1; index >= 0; index--) {
                 if (state.agenda[index].id === action.id) {
                     state.agenda.splice(index, 1);
