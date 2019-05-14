@@ -14,7 +14,8 @@ class Agenda extends Component {
     }
 
     deleteAgenda(id) {
-        this.props.deleteAgenda(id)
+        this.props.deleteAgenda(id);
+        this.forceUpdate();
     }
 
     componentWillMount() {
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
     console.log('maptoprops');
-    console.log(state.agenda);
+    console.log(state);
     return { ...state.agenda };
 };
 
