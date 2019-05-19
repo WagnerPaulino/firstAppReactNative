@@ -28,8 +28,6 @@ export default (state = { agenda: [] }, action) => {
                     state.agenda.splice(index, 1);
                 }
             }
-            console.log(state);
-            console.log('redux')
             return {
                 ...state,
                 agenda: state.agenda
@@ -40,7 +38,6 @@ export default (state = { agenda: [] }, action) => {
                 agenda: action.agenda
             }
         default:
-            console.log('default');
             return state || '';
     }
 }

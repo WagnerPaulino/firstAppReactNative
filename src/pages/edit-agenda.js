@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Button } from 'react-native';
-import t from 'tcomb-form-native';
+import { StyleSheet, View, Button, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
-
-const Form = t.form.Form;
-
 
 class EditAgenda extends Component {
 
@@ -18,25 +14,25 @@ class EditAgenda extends Component {
             }
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.agenda = this.state.agenda;
     }
 
-    handleSubmit = () => {
+    handleSubmit() {
+        this.setState({ agenda: this.agenda })
         this.props.addAgenda(this.state.agenda);
     }
 
     componentWillMount() {
-        console.log('Will mount')
-        console.log(this.state);
     }
 
     componentWillReceiveProps(newProps) {
-        console.log('Receive Props')
-        console.log(newProps.agenda);
     }
 
     render() {
         return (
             <View style={styles.container}>
+                <TextInput placeholder='Tarefa' onChangeText={(e) => this.agenda.nome = e}></TextInput>
+                <TextInput placeholder='Horario' onChangeText={(e) => this.agenda.horario = e}></TextInput>
                 <Button
                     title="Salvar"
                     onPress={this.handleSubmit}
@@ -66,8 +62,6 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-    console.log('maptoprops');
-    console.log(state);
     return { ...state.agenda };
 };
 
