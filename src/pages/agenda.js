@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Button, TouchableHighlight } from 'react-native';
+import { StyleSheet, View, Text, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { Actions } from 'react-native-router-flux'
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
 
@@ -42,13 +43,21 @@ class Agenda extends Component {
                         <TouchableHighlight onPress={() => { }} key={i}>
                             <View>
                                 <Text onPress={(e) => { e }} style={styles.welcome}>
-                                    {l.nome}
+                                    {l.nome} {l.horario}
                                 </Text>
                                 <Button title="Excluir" onPress={() => this.deleteAgenda(l.id)} />
                             </View>
                         </TouchableHighlight>
                     ))
                 }
+                <TouchableOpacity
+                    activeOpacity={0.1}
+                    style={styles.TouchableOpacityStyle}
+                    onPress={() => {
+                        Actions.push('editAgenda');
+                    }} >
+                    <Text>Adicionar</Text>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -70,6 +79,15 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#333333',
         marginBottom: 5,
+    },
+    TouchableOpacityStyle: {
+        position: 'absolute',
+        width: 70,
+        height: 70,
+        alignItems: 'center',
+        justifyContent: 'center',
+        right: 30,
+        bottom: 30
     },
 });
 
