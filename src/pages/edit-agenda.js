@@ -1,15 +1,27 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Button, TouchableHighlight } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
+import t from 'tcomb-form-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
+
+const Form = t.form.Form;
+
 
 class EditAgenda extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            agenda: {}
+            agenda: {
+                nome: '',
+                horario: ''
+            }
         };
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit = () => {
+        this.props.addAgenda(this.state.agenda);
     }
 
     componentWillMount() {
@@ -25,7 +37,10 @@ class EditAgenda extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Button onPress={() => console.log('apertado')} title="Salvar"></Button>
+                <Button
+                    title="Salvar"
+                    onPress={this.handleSubmit}
+                />
             </View>
         );
     }

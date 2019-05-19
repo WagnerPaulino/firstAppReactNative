@@ -11,9 +11,10 @@ export default (state = { agenda: [] }, action) => {
                 agenda: action.data
             }
         case ADD_AGENDA:
+            state.agenda.push(action.agenda)
             return {
                 ...state,
-                agenda: state.agenda.concat(action.agenda)
+                agenda: state.agenda
             }
         case UPDATE_AGENDA:
             return {
@@ -39,7 +40,7 @@ export default (state = { agenda: [] }, action) => {
                 agenda: action.agenda
             }
         default:
-        console.log('default');
+            console.log('default');
             return state || '';
     }
 }

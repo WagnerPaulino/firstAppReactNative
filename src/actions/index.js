@@ -1,15 +1,15 @@
 import {
-    GET_AGENDAS, DELETE_AGENDA
+    GET_AGENDAS, DELETE_AGENDA, ADD_AGENDA
 } from './types';
 
-// const generateId = () => {
-//     return Math.floor(Math.random() * 10000 + 10000);
-// }
+const generateId = () => {
+    return Math.floor(Math.random() * 10000 + 10000);
+}
 
-// const salvarCliente = (cliente) => {
-//     const id = generateId();
-//     return {...cliente, id}
-// }
+const salvarAgenda = (agenda) => {
+    const id = generateId();
+    return {...agenda, id}
+}
 
 var data = [
     { id: 1, nome: 'Ir ao banheiro', horario: 'a cada 2h' },
@@ -18,7 +18,7 @@ var data = [
 ]
 
 export const getAgendas = () => ({ type: GET_AGENDAS, data });
-// export const addCliente = (cliente) => ({ type: ADD_CLIENTE, cliente: salvarCliente(cliente) });
+export const addAgenda = (agenda) => ({ type: ADD_AGENDA, agenda: salvarAgenda(agenda) });
 // export const updateCliente = (id, cliente) => ({ type: UPDATE_CLIENTE, cliente: {id, ...cliente} });
 export const deleteAgenda = (id) => ({ type: DELETE_AGENDA, id, data });
 // export const setOrdenacao = (ev) => ({type: SET_ORDENACAO, ordenacao: ev.target.value});

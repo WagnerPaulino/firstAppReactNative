@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
-import { Actions } from 'react-native-router-flux'
+import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
 
@@ -20,16 +20,12 @@ class Agenda extends Component {
     }
 
     componentWillMount() {
-        console.log('Will mount')
         this.setState({
             agenda: this.props.getAgendas().data
         });
-        console.log(this.state);
     }
 
     componentWillReceiveProps(newProps) {
-        console.log('Receive Props')
-        console.log(newProps.agenda);
         this.setState({
             agenda: newProps.agenda
         });
@@ -92,8 +88,6 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-    console.log('maptoprops');
-    console.log(state);
     return { ...state.agenda };
 };
 
