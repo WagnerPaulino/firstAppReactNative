@@ -3,7 +3,7 @@ import { StyleSheet, View, Button, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
 
-class EditAgenda extends Component {
+class Edit extends Component {
 
     constructor(props) {
         super(props);
@@ -65,4 +65,4 @@ const mapStateToProps = (state) => {
     return { ...state.agenda };
 };
 
-export default connect(mapStateToProps, actions)(EditAgenda);
+export default connect(mapStateToProps, actions)(Edit);

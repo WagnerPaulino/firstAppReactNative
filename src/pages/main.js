@@ -4,7 +4,7 @@ import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
 
-class Agenda extends Component {
+class Main extends Component {
 
     constructor(props) {
         super(props);
@@ -27,7 +27,7 @@ class Agenda extends Component {
 
     componentWillReceiveProps(newProps) {
         this.setState({
-            agenda: newProps.agenda
+            ...newProps.agenda
         });
     }
 
@@ -39,7 +39,7 @@ class Agenda extends Component {
                         <TouchableHighlight onPress={() => { }} key={i}>
                             <View>
                                 <Text onPress={(e) => { e }} style={styles.welcome}>
-                                    {l.nome} {l.horario}
+                                    Tarefa: {l.nome} horario: {l.horario}
                                 </Text>
                                 <Button title="Excluir" onPress={() => this.deleteAgenda(l.id)} />
                             </View>
@@ -50,7 +50,7 @@ class Agenda extends Component {
                     activeOpacity={0.1}
                     style={styles.TouchableOpacityStyle}
                     onPress={() => {
-                        Actions.push('editAgenda');
+                        Actions.push('edit');
                     }} >
                     <Text>Adicionar</Text>
                 </TouchableOpacity>
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-    return { ...state.agenda };
+    return { agenda: state.agenda };
 };
 
-export default connect(mapStateToProps, actions)(Agenda);
+export default connect(mapStateToProps, actions)(Main);
