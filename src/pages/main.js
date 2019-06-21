@@ -41,7 +41,7 @@ class Main extends Component {
                                 <Text onPress={(e) => { e }} style={styles.welcome}>
                                     Tarefa: {l.nome} horario: {l.horario}
                                 </Text>
-                                <Button title="Excluir" onPress={() => this.deleteAgenda(l.id)} />
+                                <Button title="Feita" onPress={() => this.deleteAgenda(l.id)} />
                             </View>
                         </TouchableHighlight>
                     ))
