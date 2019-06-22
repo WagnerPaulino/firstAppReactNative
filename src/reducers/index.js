@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import agendaReducer from './agenda-reducer';
+import agendaReducer from './main-reducer';
 
 
 const allReducers = combineReducers({

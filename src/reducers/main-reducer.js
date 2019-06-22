@@ -3,7 +3,6 @@ import {
 } from '../actions/types';
 
 export default (state = { agenda: [] }, action) => {
-    //return state[action.type] || '';
     switch (action.type) {
         case GET_AGENDA:
             return {
